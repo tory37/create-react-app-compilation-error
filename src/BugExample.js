@@ -1,7 +1,4 @@
-import React, { useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import BugExample from './BugExample';
+import React, {useState, useEffect} from 'react';
 
 // Error: Specifically useEffect after if / else if / else inside of for - of loop
 const useBuggyHook = () => {
@@ -19,7 +16,7 @@ const useBuggyHook = () => {
 }
 
 // Error: Component with bug causing conditions
-const BuggyComponent = () => {
+const TestComponent = () => {
   for (let num of [1,2,3,4,5]) {
     if (1) {
     } else if (2) {
@@ -114,26 +111,11 @@ const useNoBuggyHookFour = () => {
   }, [])
 }
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-          <BugExample />
-        </a>
-      </header>
-    </div>
-  );
+export default {
+  useBuggyHook,
+  useBuggyHookTwo,
+  useNoBuggyHookOne,
+  useNoBuggyHookTwo,
+  useNoBuggyHookThree,
+  useNoBuggyHookFour
 }
-
-export default App;
